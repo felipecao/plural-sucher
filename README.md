@@ -8,6 +8,7 @@ BACKLOG
 ======
 
 - (DONE) lookup the term's plural
-- lookup the term's meaning 
 - (DONE) put it online on cloud bees
 - (DONE) find a jenkins instance for it (cloudbees maybe?)  
+- make decent tests using Spock
+- lookup the term's meaning 
