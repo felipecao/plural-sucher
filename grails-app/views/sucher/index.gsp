@@ -25,5 +25,10 @@
         </fieldset>
     </g:form>
 </div>
+<script>
+    window.onload = function() {
+        document.getElementById("term").focus();
+    };
+</script>
 </body>
 </html>
