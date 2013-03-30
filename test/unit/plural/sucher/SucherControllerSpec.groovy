@@ -10,10 +10,14 @@ import spock.lang.Specification
 class SucherControllerSpec extends Specification {
 
     def pluralServiceMock
+    def translationServiceMock
 
     def setup(){
         pluralServiceMock = mockFor(PluralService)
+        translationServiceMock = mockFor(TranslationService)
+
         controller.pluralService = pluralServiceMock.createMock()
+        controller.translationService = translationServiceMock.createMock()
     }
 
     def "when index action is invoked, the index view should be rendered"(){
@@ -26,8 +30,10 @@ class SucherControllerSpec extends Specification {
 
     def "when searching for a term, the controller renders whatever is returned from service"(){
         setup:
-            def retValue = "whatever"
-            pluralServiceMock.demand.pluralFrom() {String t -> retValue}
+            def retValuePlural = "whatever"
+            def retValueMeaning = "whatever"
+            pluralServiceMock.demand.pluralFrom() {String t -> retValuePlural}
+            translationServiceMock.demand.meaningOf() {String t -> retValueMeaning}
 
         when:
             controller.search("a term")
@@ -35,7 +41,8 @@ class SucherControllerSpec extends Specification {
         then:
             view == '/sucher/results'
             model.term == 'a term'
-            model.plural == retValue
+            model.plural == retValuePlural
+            model.translation == retValueMeaning
     }
 
 }
