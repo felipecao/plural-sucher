@@ -24,6 +24,11 @@
             </li>
 
             <li class="fieldcontain">
+                <span id="translation-label" class="property-label"><strong><g:message code="sucher.translation" /></strong></span>
+                <span class="property-value" aria-labelledby="term-label">${translation}</span>
+            </li>
+
+            <li class="fieldcontain">
                 <span id="plural-label" class="property-label"><strong><g:message code="sucher.plural" /></strong></span>
                 <span class="property-value" aria-labelledby="plural-label">${plural}</span>
             </li>

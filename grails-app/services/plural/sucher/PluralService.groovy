@@ -13,26 +13,13 @@ import org.ccil.cowan.tagsoup.Parser
  */
 class PluralService {
 
-    String pluralWebSite = "http://www.curso-alemao.de/exercicios/plural_dicionario.php"
+    def httpService
 
     String pluralFrom(String term) {
-        String plural = ""
-
-        def client = new DefaultHttpClient()
-        def post = new HttpPost(pluralWebSite)
+        def post = new HttpPost("http://www.curso-alemao.de/exercicios/plural_dicionario.php")
         def params = [new BasicNameValuePair("Eing_antwort", term)]
 
         post.entity = new UrlEncodedFormEntity(params, "UTF-8")
-
-        def response = client.execute(post)
-        def entityAsString = EntityUtils.toString(response.getEntity())
-        def slurper = new XmlSlurper(new Parser())
-        def htmlParser = slurper.parseText(entityAsString)
-
-        htmlParser.'**'.find{ it.@class == 'pergunta'}.each {
-            plural = it
-        }
-
-        return plural.trim()
+        return httpService.retrieveFirstWithClass(post, "pergunta")
     }
 }

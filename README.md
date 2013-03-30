@@ -10,5 +10,7 @@ BACKLOG
 - (DONE) lookup the term's plural
 - (DONE) put it online on cloud bees
 - (DONE) find a jenkins instance for it (cloudbees maybe?)  
-- make decent tests using Spock
-- lookup the term's meaning 
+- (WIP) lookup the term's meaning
+- (WIP) make decent tests using Spock
+- proper i18n
+- modal "please wait" loader
