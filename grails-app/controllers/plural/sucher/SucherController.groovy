@@ -1,5 +1,9 @@
 package plural.sucher
 
+import org.apache.commons.lang.StringUtils
+
+import static org.apache.commons.lang.StringUtils.isBlank
+
 class SucherController {
 
     def pluralService
@@ -10,6 +14,13 @@ class SucherController {
     }
 
     def search(String term){
+
+        if(isBlank(term)){
+            flash.message = "${message(code: 'term.mandatory')}"
+            render(view: "index")
+            return;
+        }
+
         def plural = pluralService.pluralFrom(term)
         def translation = translationService.meaningOf(term)
         log.debug "plural found = ${plural}"

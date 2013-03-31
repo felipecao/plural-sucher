@@ -4,8 +4,7 @@
 <html>
 <head>
     <meta name="layout" content="main">
-    <g:set var="entityName" value="${message(code: 'term.label', default: 'Term')}" />
-    <title><g:message code="default.show.label" args="[entityName]" /></title>
+    <title><g:message code="sucher.title" /></title>
 </head>
 <body>
 <div class="nav" role="navigation">
@@ -43,6 +42,7 @@
             <g:link class="edit" action="index"><g:message code="sucher.back" /></g:link>
         </fieldset>
     </g:form>
+    <g:render template="searchbox"/>
 </div>
 </body>
 </html>

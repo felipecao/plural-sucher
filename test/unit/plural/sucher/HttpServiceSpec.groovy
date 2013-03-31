@@ -38,7 +38,7 @@ class HttpServiceSpec extends Specification {
         def get = new HttpGet("http://pt.bab.la/dicionario/alemao-portugues/kellner")
 
         when:
-        def translation = service.retrieveAllWithClass(get, 'result-link')
+                def translation = service.retrieveAllWithClass(get, 'result-link')
 
         then:
         "criado, garçom" == translation

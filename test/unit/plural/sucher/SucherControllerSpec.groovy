@@ -45,4 +45,15 @@ class SucherControllerSpec extends Specification {
             model.translation == retValueMeaning
     }
 
+
+
+    def "when searching for a term, if nothing is informed, a message comes up"(){
+        when:
+            controller.search("   ")
+
+        then:
+            view == '/sucher/index'
+            flash.message == 'term.mandatory'
+    }
+
 }

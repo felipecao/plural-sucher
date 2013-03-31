@@ -18,11 +18,19 @@
 		<r:layoutResources />
 	</head>
 	<body>
-		<div id="grailsLogo" role="banner"><a href="http://grails.org"><img src="${resource(dir: 'images', file: 'grails_logo.png')}" alt="Grails"/></a></div>
+		<div id="grailsLogo" role="banner"><g:message code="sucher.title"/></div>
 		<g:layoutBody/>
 		<div class="footer" role="contentinfo"></div>
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
 		<g:javascript library="application"/>
 		<r:layoutResources />
+
+        <div id="modalPanel" class="modal"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
+
+        <script>
+            window.onload = function() {
+                document.getElementById("term").focus();
+            };
+        </script>
 	</body>
 </html>

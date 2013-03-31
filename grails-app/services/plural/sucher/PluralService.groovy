@@ -1,12 +1,8 @@
 package plural.sucher
 
-import org.apache.http.impl.client.DefaultHttpClient
+import org.apache.http.client.entity.UrlEncodedFormEntity
 import org.apache.http.client.methods.HttpPost
 import org.apache.http.message.BasicNameValuePair
-import org.apache.http.client.entity.UrlEncodedFormEntity
-import org.apache.http.HttpEntity
-import org.apache.http.util.EntityUtils
-import org.ccil.cowan.tagsoup.Parser
 
 /**
  * Code copied from http://www.frommknecht.net/2010/02/robust-html-parsing-the-groovy-way/

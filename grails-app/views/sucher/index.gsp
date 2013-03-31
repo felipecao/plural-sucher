@@ -15,20 +15,7 @@
     <g:if test="${flash.message}">
         <div class="message" role="status">${flash.message}</div>
     </g:if>
-    <g:form action="search" >
-        <fieldset class="form">
-            <label for="term"><g:message code="sucher.term" default="Text" /></label>
-            <g:textField name="term" value=""/>
-        </fieldset>
-        <fieldset class="buttons">
-            <g:submitButton name="search" class="save" value="${message(code: 'sucher.button')}" />
-        </fieldset>
-    </g:form>
+    <g:render template="searchbox"/>
 </div>
-<script>
-    window.onload = function() {
-        document.getElementById("term").focus();
-    };
-</script>
 </body>
 </html>
