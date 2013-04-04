@@ -17,6 +17,6 @@ BACKLOG
 - (DONE) modal "please wait" loader
 - (DONE) new search box below results page
 - (DONE) proper i18n
+- (DONE) currently it shows nothing if plural is not found. fix it to show results page if there's a plural or translation to show.
 - fix "please wait" on android gsii
-- currently it shows nothing if plural is not found. fix it to show results page if there's a plural or translation to show.
 - find better icons

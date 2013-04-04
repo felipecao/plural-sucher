@@ -13,7 +13,7 @@ class PluralService {
 
     String pluralFrom(String term) {
         def post = new HttpPost("http://www.curso-alemao.de/exercicios/plural_dicionario.php")
-        def params = [new BasicNameValuePair("Eing_antwort", term)]
+        def params = [new BasicNameValuePair("Eing_antwort", term.trim())]
 
         post.entity = new UrlEncodedFormEntity(params, "UTF-8")
         return httpService.retrieveFirstWithClass(post, "pergunta")

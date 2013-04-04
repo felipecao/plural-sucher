@@ -8,7 +8,7 @@ class TranslationService {
 
     String meaningOf(String term) {
         def dictionaryWebSite = "http://pt.bab.la/dicionario/alemao-portugues/%s"
-        def get = new HttpGet(String.format(dictionaryWebSite, term))
+        def get = new HttpGet(String.format(dictionaryWebSite, term.trim()))
 
         return httpService.retrieveAllWithClass(get, 'result-link')
     }

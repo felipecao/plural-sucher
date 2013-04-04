@@ -38,10 +38,18 @@ class HttpServiceSpec extends Specification {
         def get = new HttpGet("http://pt.bab.la/dicionario/alemao-portugues/kellner")
 
         when:
-                def translation = service.retrieveAllWithClass(get, 'result-link')
+        def translation = service.retrieveAllWithClass(get, 'result-link')
 
         then:
         "criado, garçom" == translation
+    }
+
+    def "an http GET to translation website for 'kellner ' generates an error"(){
+        when:
+        service.retrieveAllWithClass(new HttpGet("http://pt.bab.la/dicionario/alemao-portugues/kellner "), 'result-link')
+
+        then:
+        thrown(IllegalArgumentException)
     }
 
     def "an http GET to translation website for 'safti' returns nothing"(){
