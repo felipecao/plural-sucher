@@ -15,27 +15,20 @@
 <div id="folge" class="content scaffold-show" role="main">
     <h1><g:message code="sucher.results" /></h1>
     <ol class="property-list term">
-        <g:if test="${plural}">
+        <li class="fieldcontain">
+            <span id="term-label" class="property-label"><strong><g:message code="sucher.term" /></strong></span>
+            <span class="property-value" aria-labelledby="term-label">${term}</span>
+        </li>
 
-            <li class="fieldcontain">
-                <span id="term-label" class="property-label"><strong><g:message code="sucher.term" /></strong></span>
-                <span class="property-value" aria-labelledby="term-label">${term}</span>
-            </li>
+        <li class="fieldcontain">
+            <span id="translation-label" class="property-label"><strong><g:message code="sucher.translation" /></strong></span>
+            <span class="property-value" aria-labelledby="term-label">${translation}</span>
+        </li>
 
-            <li class="fieldcontain">
-                <span id="translation-label" class="property-label"><strong><g:message code="sucher.translation" /></strong></span>
-                <span class="property-value" aria-labelledby="term-label">${translation}</span>
-            </li>
-
-            <li class="fieldcontain">
-                <span id="plural-label" class="property-label"><strong><g:message code="sucher.plural" /></strong></span>
-                <span class="property-value" aria-labelledby="plural-label">${plural}</span>
-            </li>
-
-        </g:if>
-        <g:else>
-            <g:message code="sucher.noresults" args="[term]"/>
-        </g:else>
+        <li class="fieldcontain">
+            <span id="plural-label" class="property-label"><strong><g:message code="sucher.plural" /></strong></span>
+            <span class="property-value" aria-labelledby="plural-label">${plural ?: message(code: "sucher.noresults", args: [term])}</span>
+        </li>
     </ol>
     <g:form>
         <fieldset class="buttons">
