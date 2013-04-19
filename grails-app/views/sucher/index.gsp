@@ -8,6 +8,7 @@
 <div class="nav" role="navigation">
     <ul>
         <li><a class="home" href="${createLink(controller: 'sucher')}"><g:message code="default.home.label"/></a></li>
+        <li><a class="list" href="${createLink(controller: 'entidade')}">Prototipo</a></li>
     </ul>
 </div>
 <div id="wort-sucher" class="content scaffold-create" role="main">
