@@ -6,6 +6,7 @@
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'entidade.label', default: 'Entidade')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	</head>
 	<body>
 		<a href="#list-entidade" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
@@ -119,6 +120,22 @@
 			<div class="pagination">
 				<g:paginate total="${entidadeInstanceTotal}" />
 			</div>
+            <div id="tooltip" style="display: block; border: 1px solid red; background-color: green;" >
+                &nbsp;
+            </div>
+
+            <script>
+                $(function() {
+                    $("td > input").mouseover(function () {
+                        $("#tooltip").html(this.value);
+                        var position = $(this).offset();
+                        $('#tooltip').animate({
+                            'marginTop' : position.top - 720,
+                            'marginLeft' : position.left - 220
+                        });
+                    });
+                });
+            </script>
 		</div>
 	</body>
 </html>
