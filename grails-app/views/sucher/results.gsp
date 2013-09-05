@@ -30,6 +30,15 @@
             <span class="property-value" aria-labelledby="plural-label">${plural ?: message(code: "sucher.noresults", args: [term])}</span>
         </li>
     </ol>
+
+    <table border="0" style="width: 100%">
+        <tr>
+            <td style="text-align: center; font-size: 9px;">
+                <g:message code="sucher.time" />: ${timeSpent}<g:message code="sucher.ms" />
+            </td>
+        </tr>
+    </table>
+
     <g:form>
         <fieldset class="buttons">
             <g:link class="edit" action="index"><g:message code="sucher.back" /></g:link>

@@ -16,6 +16,6 @@ class PluralService {
         def params = [new BasicNameValuePair("Eing_antwort", term.trim())]
 
         post.entity = new UrlEncodedFormEntity(params, "UTF-8")
-        return httpService.retrieveFirstWithClass(post, "pergunta")
+        return httpService.retrieveWithClass(post, "pergunta")
     }
 }

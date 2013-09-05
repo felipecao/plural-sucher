@@ -241,6 +241,10 @@ fieldset,
 	float: left;
 }
 
+.fieldcontain .property-label-minor {
+    float: left;
+}
+
 .fieldcontain .property-value {
 	display: block;
 	margin-left: 27%;

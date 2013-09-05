@@ -7,7 +7,7 @@ import org.ccil.cowan.tagsoup.Parser
 
 class HttpService {
 
-    def retrieveFirstWithClass(AbstractHttpMessage method, String cssClass) {
+    String retrieveWithClass(AbstractHttpMessage method, String cssClass) {
         String httpReturn = ""
         def htmlParser = getParserFromMethod(method)
 
@@ -18,21 +18,30 @@ class HttpService {
         return httpReturn.trim()
     }
 
-    def retrieveAllWithClass(AbstractHttpMessage method, String cssClass){
+    String retrieveAllWithClass(AbstractHttpMessage method, String cssClass){
         def translation = new StringBuilder()
         def htmlParser = getParserFromMethod(method)
 
         htmlParser.'**'.findAll{
             it.@class == cssClass && it.parent().parent().parent().parent().@class == 'result-block'
-            }.each {
-            translation.append(it).append(", ")
-        }
+            }
+                .each {
+                    translation.append(it).append(", ")
+                }
 
         if(translation.toString().contains(',')){
             return translation.toString().substring(0, translation.toString().lastIndexOf(","))
         }
 
         return translation.toString()
+    }
+
+    String retrieveWithTagName(AbstractHttpMessage method, String tagName) {
+        def htmlParser = getParserFromMethod(method)
+
+        return htmlParser.'**'.find{
+            it.name() == tagName
+        }
     }
 
     private def getParserFromMethod(def method){

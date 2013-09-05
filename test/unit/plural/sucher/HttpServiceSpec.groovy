@@ -27,7 +27,7 @@ class HttpServiceSpec extends Specification {
             post.entity = new UrlEncodedFormEntity(params, "UTF-8")
 
         when:
-            def plural = service.retrieveFirstWithClass(post, 'pergunta')
+            def plural = service.retrieveWithClass(post, 'pergunta')
 
         then:
             "der  Saft - die Säfte" == plural
@@ -61,5 +61,16 @@ class HttpServiceSpec extends Specification {
 
         then:
         "" == translation
+    }
+
+    def "an http GET to translation website for 'kellner' returns gender 'm'"(){
+        setup:
+        def get = new HttpGet("http://pt.bab.la/dicionario/alemao-portugues/kellner")
+
+        when:
+        def gender = service.retrieveWithTagName(get, 'abbr')
+
+        then:
+        "m." == gender
     }
 }

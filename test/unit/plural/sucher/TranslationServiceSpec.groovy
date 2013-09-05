@@ -22,13 +22,14 @@ class TranslationServiceSpec extends Specification {
 
 	void "translation service returns whatever comes from httpService"() {
         setup:
-            def retValue = "garcom, criado"
-            httpServiceMock.demand.retrieveAllWithClass() {AbstractHttpMessage method, String cssClass -> retValue}
+            def expectedReturn = "garcom, criado (m.)"
+            httpServiceMock.demand.retrieveAllWithClass() {AbstractHttpMessage method, String cssClass -> "garcom, criado"}
+            httpServiceMock.demand.retrieveWithTagName() {AbstractHttpMessage method, String tagName -> "m."}
 
         when:
             def translation = service.meaningOf("kellner")
 
         then:
-            retValue == translation
+            expectedReturn == translation
 	}
 }

@@ -15,6 +15,8 @@ class SucherController {
 
     def search(String term){
 
+        def start = System.currentTimeMillis()
+
         if(isBlank(term)){
             flash.message = "${message(code: 'term.mandatory')}"
             render(view: "index")
@@ -25,6 +27,6 @@ class SucherController {
         def translation = translationService.meaningOf(term)
         log.debug "plural found = ${plural}"
         log.debug "translation found = ${translation}"
-        render(view: 'results', model: [plural:plural, translation:translation, term: term])
+        render(view: 'results', model: [plural:plural, translation:translation, term: term, timeSpent: (System.currentTimeMillis() - start)])
     }
 }

@@ -26,7 +26,7 @@ class PluralServiceSpec extends Specification {
     void "plural service returns whatever comes from httpService"() {
         setup:
         def retValue = "der  Saft - die Säfte"
-        httpServiceMock.demand.retrieveFirstWithClass() {AbstractHttpMessage method, String cssClass -> retValue}
+        httpServiceMock.demand.retrieveWithClass() {AbstractHttpMessage method, String cssClass -> retValue}
 
         when:
         def plural = service.pluralFrom("saft")
