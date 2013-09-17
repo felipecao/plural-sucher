@@ -40,7 +40,7 @@ class HttpService {
         def htmlParser = getParserFromMethod(method)
 
         return htmlParser.'**'.find{
-            it.name() == tagName
+            it.name() == tagName && it.@class == ''
         }
     }
 
